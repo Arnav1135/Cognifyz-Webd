@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slideshow</title>
+    <link rel="stylesheet" href="slideshow.css">
+</head>
+<body>
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="https://pbs.twimg.com/media/FGOwRrHVcAIGHet.jpg" style="width:100%">
+        </div>
+        <div class="mySlides fade">
+            <img src="https://iitjammu.ac.in/Facilities/c3i/images/c3i.jpg" style="width:100%">
+        </div>
+        <div class="mySlides fade">
+            <img src="https://iitjammu.ac.in/slider/slider3.jpg" style="width:100%">
+        </div>
+        <div class="mySlides fade">
+            <img src="https://i.ytimg.com/vi/tfGwbpahFiQ/maxresdefault.jpg" style="width:100%">
+        </div>
+
+        <div class="dots-container">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+        </div>
+    </div>
+
+    <script src="slideshow.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <link rel="stylesheet" href="gallery.css">
+</head>
+<body>
+    <div class="gallery">
+        <img src="https://via.placeholder.com/150" alt="Thumbnail 1" class="thumbnail" onclick="enlargeImage(this)">
+        <img src="https://via.placeholder.com/150" alt="Thumbnail 2" class="thumbnail" onclick="enlargeImage(this)">
+        <img src="https://via.placeholder.com/150" alt="Thumbnail 3" class="thumbnail" onclick="enlargeImage(this)">
+        <img src="https://via.placeholder.com/150" alt="Thumbnail 4" class="thumbnail" onclick="enlargeImage(this)">
+    </div>
+
+    <div id="modal" class="modal" onclick="closeImage()">
+        <span class="close" onclick="closeImage()">&times;</span>
+        <img class="modal-content" id="enlargedImage">
+        <div id="caption"></div>
+    </div>
+
+    <script>
+        function enlargeImage(thumbnail) {
+            const modal = document.getElementById("modal");
+            const enlargedImage = document.getElementById("enlargedImage");
+            const captionText = document.getElementById("caption");
+            modal.style.display = "block";
+            enlargedImage.src = thumbnail.src.replace("150", "600"); // replace with larger size
+            captionText.innerHTML = thumbnail.alt;
+        }
+
+        function closeImage() {
+            document.getElementById("modal").style.display = "none";
+        }
+    </script>
+</body>
+</html>
+
